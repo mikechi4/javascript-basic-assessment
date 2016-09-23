@@ -65,45 +65,90 @@ for(var key in snake){
 
 //#7 Create an array of strings that are the 7 primary colors in the rainbow - red, orange, yellow, green, blue, indigo, violet (lower-case). Call your array rainbowColors
 
+var rainbowColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+
 // #8 Using this array do the following
 var heroes = ['superman', 'batman', 'flash'];
 // add 'wonderwoman' to the end
-
+heroes.push('wonderwoman');
 // remove 'superman' and store him in a variable called firstHero
-
+var firstHero = heroes.shift();
 // add 'spongebob' to the start of the array
-
+heroes.unshift('spongebob');
 // remove 'flash' from the array and store him in a variable called secondHero
-
+var secondHero = heroes.splice(2,1);
 // leave batman in the array but put a copy of him on a variable called thirdHero
-
+var thirdHero = heroes[1];
 
 
 
 // #9 Write a function called addItem that takes in an array, an item, and adds the item to
 // the array.
-
+function addItem(arr, item){
+	arr.push(item);
+	return arr;
+}
 
 // #10 Write a function called removeItem that takes in an array of strings, and a string.
-
+function removeItem(arr,str){
+	for(var i = 0; i < arr.length; i++){
+		if(arr[i] === str) {
+			arr.splice(i, 1);
+		}
+	}
+	return arr;
+}
 // Removes all instances of that string from the array. And return the modified array.
 // The order of the array should not be changed
 
 // #11 Write a function  called doubleTheFun that takes 1 parameter. It should double numbers, and
 // repeats strings. example 4->8, 2.5->5, 'Awesome'->'AwesomeAwesome'
 
+function doubleTheFun(a){
+	if(typeof(a) === 'number') {
+		a *= 2;
+	} else if (a * 1){
+		a *= 2;
+	}else {
+		a = new Array(3).join(a);
+	}
+	return a;
+}
 
 
 // #12 Write function getValueOfProperty that takes in an object, and the name of a property on the object
 // return the value from the object that corresponds to the property
 
+function getValueOfProperty(obj, prop) {
+	return obj[prop];
+}
 
 // #13 Write a function called makeChatMessage that takes in a message and author as parameters
 // and returns an object with a message, author, and timestamp, that is
 // the current time as a Date object
 
-// #14 Create a function called coderTest that takes in an object that is a person. It looks to see if the person’s name is Jeremy and then changes the person object to have a property called lovesCode with a value of 10.  If their name is Brack set lovesCode to 0.  otherwise set lovesCode to 5.
+function makeChatMessage(message, author) {
+	var returnObj = {
+		message: message,
+		author: author,
+		timestamp: new Date()
+	};
 
+	return returnObj;
+
+}
+// #14 Create a function called coderTest that takes in an object that is a person. 
+//It looks to see if the person’s name is Jeremy and then changes the person object to have a property called lovesCode with a value of 10.  
+//If their name is Brack set lovesCode to 0.  otherwise set lovesCode to 5.
+function coderTest(person){
+	if(person.name === 'Jeremy'){
+		person.lovesCode = 10;
+	} else if (person.name === 'Brack'){
+		person.lovesCode = 0;
+	} else {
+		person.lovesCode = 5;
+	}
+}
 
 // #15 Create a function called outside that takes in a temperature (number), a humidity(number), and a cloudiness(number), in that order. Using the following to return the correct values
 /*
@@ -114,6 +159,28 @@ var heroes = ['superman', 'batman', 'flash'];
     Otherwise - return "I love outside"
 */
 
-// #16 Create a function called callerBack that takes in a function (holla) and a string parameter(back) and invokes it(holla) with the argument string(back) + ' back'."
+function outside(temperature, humidity, cloudiness){
+	if(temperature > 80 && humidity > 40){
+		return 'I\'m all sweat';
+	} else if (temperature < 40 && cloudiness > 60) {
+		return 'I have icecicles';
+	} else if (temperature > 80 && humidity < 40 && cloudiness < 20){
+		return 'I\'m literally in the desert';
+	} else if (temperature > 80 || humidity > 50 || cloudiness > 50){
+		return "Hmm, probably not";
+	} else {
+		return "I love outside";
+	}
+}
+
+// #16 Create a function called callerBack that takes in a function (holla) and a string parameter(back) 
+//and invokes it(holla) with the argument string(back) + ' back'."
 // example - If I call you with 'Give it' you should invoke holla with 'Give it back'
+function holla(str){
+	return str;
+}
+
+function callerBack(holla, back){
+	return holla(back + ' back');
+}
 
