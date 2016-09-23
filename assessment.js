@@ -110,7 +110,7 @@ function doubleTheFun(a){
 	} else if (a * 1){
 		a *= 2;
 	}else {
-		a = new Array(3).join(a);
+		a += a;
 	}
 	return a;
 }
