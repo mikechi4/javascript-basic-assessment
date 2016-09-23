@@ -91,7 +91,7 @@ function addItem(arr, item){
 
 // #10 Write a function called removeItem that takes in an array of strings, and a string.
 function removeItem(arr,str){
-	for(var i = 0; i < arr.length; i++){
+	for(var i = arr.length; i >= 0; i--){
 		if(arr[i] === str) {
 			arr.splice(i, 1);
 		}
